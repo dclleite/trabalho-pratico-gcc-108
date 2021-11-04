@@ -1,12 +1,6 @@
 from Transicao import Transicao
 
 class Maquina():
-    def __str__(self):
-        out = ""
-        out += ("FITA 1 [REGRAS]:\n" + str(self.fita1) + "\n\nFITA 2 [ESTADO_ATUAL]:\n" + str(self.fita2) 
-            + "\n\nFITA 3 [PALAVRA]:\n" + str(self.fita3) + "\n\n")
-        return out
-
     def __init__(self, regras, palavra):
         self.fita1 = regras 	  
         self.fita2 = "1"		  
@@ -53,8 +47,6 @@ class Maquina():
                 raise ErroMaquina 
 
     def executarMaquina(self):
-        print("INICIO :")
-        print( self )
         i = 1
         var = self.buscarTransicao()
         conta_transicao = dict()
@@ -77,8 +69,6 @@ class Maquina():
                 print("possivel loop infinito")
                 exit(0)
 
-            print("Passo " + str(i) )
-            print(self)	
             i+=1
 
             var = self.buscarTransicao()
