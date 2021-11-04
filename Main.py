@@ -11,29 +11,29 @@ if __name__ == '__main__':
         print('Arquivo não encontrado')
         sys.exit()
 
-rMw = arquivo.read() 
+    rMw = arquivo.read() 
 
-rMw = rMw[3:]
-finalLeitura = rMw.find("000")
+    rMw = rMw[3:]
+    finalLeitura = rMw.find("000")
 
-rM = rMw[:finalLeitura]
-rM = rM.split("00") 
+    rM = rMw[:finalLeitura]
+    rM = rM.split("00") 
 
-if len( rM ) == 1: 
-    print( ENTRADAINVALIDA )
-    exit(0)
+    if len( rM ) == 1: 
+        print( ENTRADAINVALIDA )
+        exit(0)
 
-w = rMw[finalLeitura+3:] 
+    w = rMw[finalLeitura+3:] 
 
-terOcorrencia = w.find("000") 
+    terOcorrencia = w.find("000") 
 
-if terOcorrencia == -1: 
-    print ( ENTRADAINVALIDA )
-    exit(0)
-else:
-    w = w[:len(w)-4]
-    w = w.split('0')
-    
-    w.append('111')
+    if terOcorrencia == -1: 
+        print ( ENTRADAINVALIDA )
+        exit(0)
+    else:
+        w = w[:len(w)-4]
+        w = w.split('0')
+        
+        w.append('111')
 
-    Maquina( rM , w ).executarMaquina()
+        Maquina( rM , w ).executarMaquina()
